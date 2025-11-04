@@ -1,0 +1,381 @@
+home_team,away_team
+Girona FC,Rayo Vallecano
+Villarreal CF,Real Oviedo
+RCD Mallorca,FC Barcelona
+Deportivo Alavés,Levante UD
+Valencia CF,Real Sociedad
+Celta,Getafe CF
+Athletic Club,Sevilla FC
+RCD Espanyol de Barcelona,Atlético de Madrid
+Elche CF,Real Betis
+Real Madrid,CA Osasuna
+Real Betis,Deportivo Alavés
+RCD Mallorca,Celta
+Atlético de Madrid,Elche CF
+Levante UD,FC Barcelona
+CA Osasuna,Valencia CF
+Real Sociedad,RCD Espanyol de Barcelona
+Villarreal CF,Girona FC
+Real Oviedo,Real Madrid
+Athletic Club,Rayo Vallecano
+Sevilla FC,Getafe CF
+Elche CF,Levante UD
+Valencia CF,Getafe CF
+Deportivo Alavés,Atlético de Madrid
+Real Oviedo,Real Sociedad
+Girona FC,Sevilla FC
+Real Madrid,RCD Mallorca
+Celta,Villarreal CF
+Real Betis,Athletic Club
+RCD Espanyol de Barcelona,CA Osasuna
+Rayo Vallecano,FC Barcelona
+Sevilla FC,Elche CF
+Getafe CF,Real Oviedo
+Real Sociedad,Real Madrid
+Athletic Club,Deportivo Alavés
+Atlético de Madrid,Villarreal CF
+Celta,Girona FC
+Levante UD,Real Betis
+CA Osasuna,Rayo Vallecano
+FC Barcelona,Valencia CF
+RCD Espanyol de Barcelona,RCD Mallorca
+Real Betis,Real Sociedad
+Girona FC,Levante UD
+Real Madrid,RCD Espanyol de Barcelona
+Deportivo Alavés,Sevilla FC
+Villarreal CF,CA Osasuna
+Valencia CF,Athletic Club
+Rayo Vallecano,Celta
+RCD Mallorca,Atlético de Madrid
+Elche CF,Real Oviedo
+FC Barcelona,Getafe CF
+Celta,Real Betis
+Athletic Club,Girona FC
+RCD Espanyol de Barcelona,Valencia CF
+Levante UD,Real Madrid
+Sevilla FC,Villarreal CF
+Getafe CF,Deportivo Alavés
+Atlético de Madrid,Rayo Vallecano
+Real Sociedad,RCD Mallorca
+CA Osasuna,Elche CF
+Real Oviedo,FC Barcelona
+Girona FC,RCD Espanyol de Barcelona
+Getafe CF,Levante UD
+Atlético de Madrid,Real Madrid
+RCD Mallorca,Deportivo Alavés
+Villarreal CF,Athletic Club
+Rayo Vallecano,Sevilla FC
+Elche CF,Celta
+FC Barcelona,Real Sociedad
+Real Betis,CA Osasuna
+Valencia CF,Real Oviedo
+CA Osasuna,Getafe CF
+Real Oviedo,Levante UD
+Girona FC,Valencia CF
+Athletic Club,RCD Mallorca
+Real Madrid,Villarreal CF
+Deportivo Alavés,Elche CF
+Sevilla FC,FC Barcelona
+RCD Espanyol de Barcelona,Real Betis
+Real Sociedad,Rayo Vallecano
+Celta,Atlético de Madrid
+Real Oviedo,RCD Espanyol de Barcelona
+Sevilla FC,RCD Mallorca
+FC Barcelona,Girona FC
+Villarreal CF,Real Betis
+Atlético de Madrid,CA Osasuna
+Elche CF,Athletic Club
+Celta,Real Sociedad
+Levante UD,Rayo Vallecano
+Getafe CF,Real Madrid
+Deportivo Alavés,Valencia CF
+Real Sociedad,Sevilla FC
+Girona FC,Real Oviedo
+RCD Espanyol de Barcelona,Elche CF
+Athletic Club,Getafe CF
+Valencia CF,Villarreal CF
+RCD Mallorca,Levante UD
+Real Madrid,FC Barcelona
+CA Osasuna,Celta
+Rayo Vallecano,Deportivo Alavés
+Real Betis,Atlético de Madrid
+Getafe CF,Girona FC
+Villarreal CF,Rayo Vallecano
+Atlético de Madrid,Sevilla FC
+Real Sociedad,Athletic Club
+Real Madrid,Valencia CF
+Levante UD,Celta
+Deportivo Alavés,RCD Espanyol de Barcelona
+FC Barcelona,Elche CF
+Real Betis,RCD Mallorca
+Real Oviedo,CA Osasuna
+Elche CF,Real Sociedad
+Sevilla FC,CA Osasuna
+Atlético de Madrid,Levante UD
+RCD Espanyol de Barcelona,Villarreal CF
+Athletic Club,Real Oviedo
+Rayo Vallecano,Real Madrid
+Valencia CF,Real Betis
+RCD Mallorca,Getafe CF
+Girona FC,Deportivo Alavés
+Celta,FC Barcelona
+Valencia CF,Levante UD
+Deportivo Alavés,Celta
+FC Barcelona,Athletic Club
+CA Osasuna,Real Sociedad
+Villarreal CF,RCD Mallorca
+Real Oviedo,Rayo Vallecano
+Real Betis,Girona FC
+Getafe CF,Atlético de Madrid
+Elche CF,Real Madrid
+RCD Espanyol de Barcelona,Sevilla FC
+Atlético de Madrid,Real Oviedo
+Celta,RCD Espanyol de Barcelona
+Girona FC,Real Madrid
+RCD Mallorca,CA Osasuna
+Rayo Vallecano,Valencia CF
+Real Sociedad,Villarreal CF
+FC Barcelona,Deportivo Alavés
+Levante UD,Athletic Club
+Sevilla FC,Real Betis
+Getafe CF,Elche CF
+Deportivo Alavés,Real Sociedad
+Athletic Club,Atlético de Madrid
+Elche CF,Girona FC
+RCD Espanyol de Barcelona,Rayo Vallecano
+Real Betis,FC Barcelona
+Real Madrid,Celta
+Villarreal CF,Getafe CF
+CA Osasuna,Levante UD
+Real Oviedo,RCD Mallorca
+Valencia CF,Sevilla FC
+Deportivo Alavés,Real Madrid
+Atlético de Madrid,Valencia CF
+FC Barcelona,CA Osasuna
+Levante UD,Villarreal CF
+Celta,Athletic Club
+Rayo Vallecano,Real Betis
+RCD Mallorca,Elche CF
+Getafe CF,RCD Espanyol de Barcelona
+Real Sociedad,Girona FC
+Sevilla FC,Real Oviedo
+Athletic Club,RCD Espanyol de Barcelona
+Real Betis,Getafe CF
+Elche CF,Rayo Vallecano
+Levante UD,Real Sociedad
+Real Madrid,Sevilla FC
+CA Osasuna,Deportivo Alavés
+Girona FC,Atlético de Madrid
+Villarreal CF,FC Barcelona
+Real Oviedo,Celta
+Valencia CF,RCD Mallorca
+Deportivo Alavés,Real Oviedo
+Celta,Valencia CF
+Elche CF,Villarreal CF
+CA Osasuna,Athletic Club
+Real Sociedad,Atlético de Madrid
+RCD Espanyol de Barcelona,FC Barcelona
+Real Madrid,Real Betis
+Rayo Vallecano,Getafe CF
+RCD Mallorca,Girona FC
+Sevilla FC,Levante UD
+Athletic Club,Real Madrid
+Getafe CF,Real Sociedad
+Girona FC,CA Osasuna
+Villarreal CF,Deportivo Alavés
+FC Barcelona,Atlético de Madrid
+Real Oviedo,Real Betis
+Sevilla FC,Celta
+Valencia CF,Elche CF
+Levante UD,RCD Espanyol de Barcelona
+Rayo Vallecano,RCD Mallorca
+Real Betis,Villarreal CF
+Celta,Rayo Vallecano
+Elche CF,Sevilla FC
+RCD Espanyol de Barcelona,Girona FC
+Getafe CF,Valencia CF
+CA Osasuna,Real Oviedo
+Atlético de Madrid,Deportivo Alavés
+RCD Mallorca,Athletic Club
+Real Sociedad,FC Barcelona
+Real Madrid,Levante UD
+Deportivo Alavés,Real Betis
+Atlético de Madrid,RCD Mallorca
+FC Barcelona,Real Oviedo
+Sevilla FC,Athletic Club
+Real Sociedad,Celta
+Levante UD,Elche CF
+Valencia CF,RCD Espanyol de Barcelona
+Girona FC,Getafe CF
+Rayo Vallecano,CA Osasuna
+Villarreal CF,Real Madrid
+Athletic Club,Real Sociedad
+Real Betis,Valencia CF
+RCD Mallorca,Sevilla FC
+CA Osasuna,Villarreal CF
+RCD Espanyol de Barcelona,Deportivo Alavés
+Levante UD,Atlético de Madrid
+Elche CF,FC Barcelona
+Getafe CF,Celta
+Real Oviedo,Girona FC
+Real Madrid,Rayo Vallecano
+Deportivo Alavés,Getafe CF
+Athletic Club,Levante UD
+Atlético de Madrid,Real Betis
+FC Barcelona,RCD Mallorca
+Celta,CA Osasuna
+Real Sociedad,Elche CF
+Villarreal CF,RCD Espanyol de Barcelona
+Sevilla FC,Girona FC
+Valencia CF,Real Madrid
+Rayo Vallecano,Real Oviedo
+Elche CF,CA Osasuna
+Getafe CF,Villarreal CF
+Levante UD,Valencia CF
+Real Madrid,Real Sociedad
+Sevilla FC,Deportivo Alavés
+Real Oviedo,Athletic Club
+Rayo Vallecano,Atlético de Madrid
+Girona FC,FC Barcelona
+RCD Mallorca,Real Betis
+RCD Espanyol de Barcelona,Celta
+Deportivo Alavés,Girona FC
+Athletic Club,Elche CF
+Atlético de Madrid,RCD Espanyol de Barcelona
+FC Barcelona,Levante UD
+Real Betis,Rayo Vallecano
+Celta,RCD Mallorca
+Getafe CF,Sevilla FC
+CA Osasuna,Real Madrid
+Villarreal CF,Valencia CF
+Real Sociedad,Real Oviedo
+FC Barcelona,Villarreal CF
+Real Betis,Sevilla FC
+Elche CF,RCD Espanyol de Barcelona
+RCD Mallorca,Real Sociedad
+Levante UD,Deportivo Alavés
+Rayo Vallecano,Athletic Club
+Real Oviedo,Atlético de Madrid
+Girona FC,Celta
+Real Madrid,Getafe CF
+Valencia CF,CA Osasuna
+Athletic Club,FC Barcelona
+Atlético de Madrid,Real Sociedad
+Celta,Real Madrid
+RCD Espanyol de Barcelona,Real Oviedo
+Valencia CF,Deportivo Alavés
+Getafe CF,Real Betis
+Villarreal CF,Elche CF
+Levante UD,Girona FC
+CA Osasuna,RCD Mallorca
+Sevilla FC,Rayo Vallecano
+Deportivo Alavés,Villarreal CF
+Atlético de Madrid,Getafe CF
+FC Barcelona,Sevilla FC
+Real Betis,Celta
+Real Oviedo,Valencia CF
+Girona FC,Athletic Club
+Real Madrid,Elche CF
+RCD Mallorca,RCD Espanyol de Barcelona
+Rayo Vallecano,Levante UD
+Real Sociedad,CA Osasuna
+Athletic Club,Real Betis
+FC Barcelona,Rayo Vallecano
+Elche CF,RCD Mallorca
+RCD Espanyol de Barcelona,Getafe CF
+Levante UD,Real Oviedo
+Sevilla FC,Valencia CF
+Celta,Deportivo Alavés
+Real Madrid,Atlético de Madrid
+CA Osasuna,Girona FC
+Villarreal CF,Real Sociedad
+Deportivo Alavés,CA Osasuna
+Atlético de Madrid,FC Barcelona
+Real Betis,RCD Espanyol de Barcelona
+Girona FC,Villarreal CF
+RCD Mallorca,Real Madrid
+Real Oviedo,Sevilla FC
+Getafe CF,Athletic Club
+Valencia CF,Celta
+Rayo Vallecano,Elche CF
+Real Sociedad,Levante UD
+Athletic Club,Villarreal CF
+FC Barcelona,RCD Espanyol de Barcelona
+Celta,Real Oviedo
+Elche CF,Valencia CF
+RCD Mallorca,Rayo Vallecano
+Real Sociedad,Deportivo Alavés
+Sevilla FC,Atlético de Madrid
+CA Osasuna,Real Betis
+Levante UD,Getafe CF
+Real Madrid,Girona FC
+Deportivo Alavés,RCD Mallorca
+Real Betis,Real Madrid
+RCD Espanyol de Barcelona,Levante UD
+CA Osasuna,Sevilla FC
+Rayo Vallecano,Real Sociedad
+Atlético de Madrid,Athletic Club
+Getafe CF,FC Barcelona
+Villarreal CF,Celta
+Real Oviedo,Elche CF
+Valencia CF,Girona FC
+Athletic Club,CA Osasuna
+FC Barcelona,Celta
+Levante UD,Sevilla FC
+RCD Mallorca,Valencia CF
+Real Oviedo,Villarreal CF
+Real Madrid,Deportivo Alavés
+Elche CF,Atlético de Madrid
+Girona FC,Real Betis
+Rayo Vallecano,RCD Espanyol de Barcelona
+Real Sociedad,Getafe CF
+Deportivo Alavés,Athletic Club
+Real Betis,Real Oviedo
+Celta,Elche CF
+RCD Espanyol de Barcelona,Real Madrid
+Getafe CF,Rayo Vallecano
+Girona FC,RCD Mallorca
+Valencia CF,Atlético de Madrid
+CA Osasuna,FC Barcelona
+Villarreal CF,Levante UD
+Sevilla FC,Real Sociedad
+Athletic Club,Valencia CF
+Atlético de Madrid,Celta
+FC Barcelona,Real Madrid
+Levante UD,CA Osasuna
+RCD Mallorca,Villarreal CF
+Elche CF,Deportivo Alavés
+Real Sociedad,Real Betis
+Sevilla FC,RCD Espanyol de Barcelona
+Real Oviedo,Getafe CF
+Rayo Vallecano,Girona FC
+Deportivo Alavés,FC Barcelona
+Real Betis,Elche CF
+Celta,Levante UD
+Getafe CF,RCD Mallorca
+Girona FC,Real Sociedad
+RCD Espanyol de Barcelona,Athletic Club
+CA Osasuna,Atlético de Madrid
+Valencia CF,Rayo Vallecano
+Villarreal CF,Sevilla FC
+Real Madrid,Real Oviedo
+Athletic Club,Celta
+Atlético de Madrid,Girona FC
+FC Barcelona,Real Betis
+Elche CF,Getafe CF
+Levante UD,RCD Mallorca
+Rayo Vallecano,Villarreal CF
+Real Sociedad,Valencia CF
+Real Oviedo,Deportivo Alavés
+CA Osasuna,RCD Espanyol de Barcelona
+Sevilla FC,Real Madrid
+Deportivo Alavés,Rayo Vallecano
+Real Betis,Levante UD
+Celta,Sevilla FC
+RCD Espanyol de Barcelona,Real Sociedad
+Getafe CF,CA Osasuna
+RCD Mallorca,Real Oviedo
+Real Madrid,Athletic Club
+Villarreal CF,Atlético de Madrid
+Valencia CF,FC Barcelona
+Girona FC,Elche CF
