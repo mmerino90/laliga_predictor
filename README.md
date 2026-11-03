@@ -1,185 +1,125 @@
-# La Liga 2025/26 Match Predictor
+# La Liga Match Predictor
 
-> **Walkthrough notebook:** [`laliga_predictor_walkthrough.ipynb`](laliga_predictor_walkthrough.ipynb)  
-> **Diagnostic plots:** [`plots/`](plots/)
+[![Tests](https://github.com/mmerino90/laliga_predictor/actions/workflows/tests.yml/badge.svg)](https://github.com/mmerino90/laliga_predictor/actions/workflows/tests.yml)
+[![Weekly predictions](https://github.com/mmerino90/laliga_predictor/actions/workflows/predictions.yml/badge.svg)](https://github.com/mmerino90/laliga_predictor/actions/workflows/predictions.yml)
 
-A machine learning pipeline that predicts La Liga match results and scorelines using 11 seasons of historical data (2015–26).
+**Live predictions → [mmerino90.github.io/laliga_predictor](https://mmerino90.github.io/laliga_predictor/)** (rebuilt automatically every Tuesday and Friday)
 
----
+An XGBoost model that predicts La Liga results (home win / draw / away win) and scorelines from 11+ seasons of match data. It is benchmarked honestly against the betting market using walk-forward validation.
+
+## Results
+
+Every season from 2018-19 to 2025-26 is predicted by a model trained **only on earlier seasons**, using features computed **only from information available before kick-off**. That makes 3,040 out-of-sample matches.
+
+> **What "Bookmakers" means here.** Betting odds are a forecast in disguise: odds of 2.00 mean the bookmaker thinks the outcome happens about 50% of the time. For each match I take the pre-match odds for home / draw / away from two sources, **Bet365** and the **market average across many bookmakers** published by football-data.co.uk, and turn them into probabilities (1 / odds). Those raw numbers add up to more than 100% because bookmakers build in a profit margin, so I scale them back to 100% and average the two sources.
+> Example: odds of 2.00 / 3.40 / 3.80 → 50% / 29% / 26% (sum ≈ 106%) → **47% / 28% / 25%**.
+> This "Bookmakers" row is not a model I trained. It is the betting market's own forecast, the hardest benchmark there is, because professional odds-setters and big bettors have every incentive to make it accurate.
+
+| Model | Accuracy | Log-loss ↓ | RPS ↓ |
+|---|---:|---:|---:|
+| Base rates (always the historical H/D/A split) | 45.0% | 1.071 | 0.2247 |
+| ELO only (logistic regression) | 51.8% | 0.997 | 0.1998 |
+| Logistic regression, all features | 51.6% | 0.996 | 0.1976 |
+| XGBoost without odds features | 50.8% | 1.005 | 0.2025 |
+| **XGBoost (production model)** | **52.2%** | **0.990** | **0.1973** |
+| XGBoost + isotonic calibration | 51.6% | 1.166 | 0.2013 |
+| XGBoost, tuned + isotonic calibration | 51.5% | 1.167 | 0.2016 |
+| *Bookmakers' odds (the betting market's forecast; benchmark, not my model)* | *53.0%* | *0.976* | *0.1939* |
+
+*RPS (ranked probability score) is the standard metric for football forecasts. It rewards putting probability on outcomes close to what happened. Full numbers: [`results/metrics.json`](results/metrics.json).*
+
+![Walk-forward accuracy per season](results/per_season_accuracy.png)
+
+**What the numbers say**
+
+- **The model is good, but the market is better.** XGBoost beats every simple baseline, but it trails the bookmakers by 0.9 accuracy points and 0.0033 RPS. The 95% bootstrap interval for that RPS gap is [0.0014, 0.0052], so the gap is small but real. Bookmakers already price in ELO, form, shots and more.
+- **The engineered features carry real signal.** Without any odds input, XGBoost reaches 50.8%, against 45.0% for base rates. Adding the odds features gets it to 52.2%.
+- **Calibration was already fine.** The raw XGBoost probabilities sit close to the diagonal (see the calibration plot below). Isotonic calibration fitted on one season *overfits* and hurts log-loss, so the production model is uncalibrated.
+- **Draws are the hard part.** Draws are 27% of results but are rarely the most likely outcome. A draw-aware decision rule, tuned walk-forward, raises draw recall from 13% to 20% but lowers overall accuracy (52.2% → 51.9%), so it is not used.
+- **Goals models beat the naive baseline.** Mean absolute error is 0.91 vs 1.00 for home goals and 0.79 vs 0.83 for away goals, compared with predicting the league average.
+
+### A real forward test
+
+On 2026-04-09 this repo committed predictions for the last 80 matches of 2025-26 ([`data/forward_test/`](data/forward_test/)), before any of them were played. Scored against what actually happened:
+
+| | Accuracy | RPS ↓ |
+|---|---:|---:|
+| Committed predictions (old pipeline) | 50.0% | 0.221 |
+| Bookmakers' odds, same 80 matches | 52.5% | 0.209 |
+
+The old pipeline predicted a home win for **all 80** matches. Those fixtures had no odds, so the odds features were filled in with averages. The current pipeline reads upcoming odds from `fixtures.csv`, which fixes this.
+
+### Lesson learned: a leakage bug
+
+An earlier version of this project reported **58.1%** accuracy. That came from a bug: the "walk-forward" code re-indexed each test season from 0, so all seven test folds actually scored the same 114 matches from 2016, and those matches were also in the training data. Fixing the split dropped accuracy to the ~52% above. [`tests/test_pipeline.py`](tests/test_pipeline.py) now checks that every fold trains only on the past.
 
 ## How it works
 
-### Architecture
-
 ```
-data/                          ← raw match data
-  SP1 2015.csv … SP1 2025 updated.csv   ← historical results (11 seasons)
-  fixtures_25_26.csv           ← remaining fixtures for current season
-
-data_engineering/
-  build_model_dataset.py       ← Step 1: build feature dataset
-
-data/
-  model_ready_matches_25_26.csv  ← output of Step 1
-
-prediction/
-  train_predict.py             ← Step 2: train models + generate predictions
-
-data/
-  predictions_future_matches.csv  ← final predictions (one row per fixture)
-  evaluation_report.txt           ← model performance report
+football-data.co.uk CSVs ─► features.py ─► model.py ─► evaluate.py ─► results/ + site/data.json
+  (results, shots, odds)     pre-match       XGBoost      walk-forward     plots, metrics, live site
 ```
 
-### Step 1 — Feature Engineering (`build_model_dataset.py`)
+**Features** (`laliga/features.py`). Matches are processed in kick-off order, and each row is recorded *before* its result updates the running state:
 
-Processes all 11 seasons chronologically and builds a row for every match with **pre-match only** features (no data leakage). Features computed per match:
-
-| Feature group | Description |
+| Group | Details |
 |---|---|
-| **ELO ratings** | Opponent-adjusted team strength, updated after every match, persists across seasons |
-| **Season table stats** | Points per match, goal difference per match, home/away splits |
-| **Rolling form** | Last 3 / 5 / 10 matches — points, goals scored, goals conceded |
-| **Shots on target** | Rolling 5-match average shots on target for/against (luck-adjusted quality) |
-| **Venue-specific form** | Home team's last 5 home games; away team's last 5 away games |
-| **Head-to-head** | Last 5 H2H meetings between this exact pair (persists across seasons) |
-| **Rest days** | Days since each team's previous match |
-| **Bookmaker odds** | Consensus (Bet365 + market average) implied probabilities |
-| **Season progress** | Fractional progress within the season (0 → 1) |
+| ELO ratings | K=20, +60 home advantage, carried across seasons |
+| Form | Points over the last 3 / 5 / 10 matches; goals for/against over the last 5 |
+| Shots on target | Last 5 matches, for and against (less noisy than goals) |
+| Venue form | The home team's last 5 home games, the away team's last 5 away games |
+| Table | Points and goal difference per match; home/away points per match |
+| Context | Head-to-head (last 5 meetings), rest days, matchday |
+| Market | Bet365 + market-average odds, converted to probabilities with the margin removed |
 
-### Step 2 — Training & Prediction (`train_predict.py`)
+**Models** (`laliga/model.py`)
+- XGBoost multi-class classifier for H/D/A. Recent matches are weighted more (half-life of one season), and the number of trees is chosen by early stopping on the most recent 10% of the training data.
+- Two XGBoost Poisson regressors give expected goals for each side. Treating them as independent Poisson variables gives a probability for every scoreline.
 
-Trains three models on all played matches, then predicts remaining fixtures:
+![Calibration](results/calibration.png)
 
-| Model | Purpose | Algorithm |
-|---|---|---|
-| **Result classifier** | Predict H / D / A with probabilities | XGBoost multi-class softmax |
-| **Home goals** | Expected goals for home team | XGBoost Poisson regressor |
-| **Away goals** | Expected goals for away team | XGBoost Poisson regressor |
+![ELO ratings this season](results/elo_current_season.png)
 
-Key design choices:
-- **Time-based split** — test set is always the most recent matches (no random shuffle)
-- **Recency weighting** — recent matches weighted more (half-life = 1 full season)
-- **OOF isotonic calibration** — probabilities corrected using out-of-fold cross-validation to avoid overconfidence
-- **Walk-forward CV** — evaluates across 7 historical seasons for a reliable accuracy estimate
-
-**Score distributions** are generated using the Poisson model: given expected goals λ_home and λ_away, the probability of every scoreline (0–0 through 5–5) is P(i–j) = Poisson(i, λ_h) × Poisson(j, λ_a).
-
-### Model performance
-
-| Metric | Value |
-|---|---|
-| Walk-forward CV accuracy (7 seasons, 798 matches) | **58.1%** |
-| Current-season holdout accuracy (51 matches) | **52.9%** vs 51.0% odds baseline |
-| RPS (lower = better) | **0.198** vs 0.201 odds baseline |
-
-> The theoretical ceiling for football prediction is ~55–57%. Draws (≈26% of matches) have near-zero signal and are the main source of unpredictability.
-
----
-
-## Output files
-
-### `predictions_future_matches.csv`
-
-One row per remaining fixture. Key columns:
-
-| Column | Description |
-|---|---|
-| `match_datetime` | Kick-off date and time |
-| `home_team` / `away_team` | Teams |
-| `predicted_result` | H (home win) / D (draw) / A (away win) |
-| `prob_home_win` / `prob_draw` / `prob_away_win` | Model probabilities (sum to 1) |
-| `most_likely_score` | Single most probable scoreline |
-| `most_likely_score_prob` | That scoreline's probability (typically 10–15%) |
-| `score_probabilities` | Top 5 scorelines with individual probabilities |
-| `confidence` | Max probability across H/D/A — how certain the model is |
-| `confidence_tier` | Low / Medium / High / Very High |
-| `poisson_prob_h/d/a` | H/D/A probabilities from the Poisson goal model (cross-check) |
-| `odds_implied_result` | What the bookmaker odds predict |
-| `model_vs_odds` | Whether model agrees or disagrees with the market |
-
-### `evaluation_report.txt`
-
-Full performance report including walk-forward CV results, confusion matrix, goals model MAE/RMSE, and top feature importances.
-
----
-
-## How to update for each gameweek
-
-After a gameweek is played:
-
-### 1. Add new results to `data/SP1 2025 updated.csv`
-
-Add rows in the same format as the existing file:
-
-```
-Date,HomeTeam,AwayTeam,FTHG,FTAG,FTR,HS,AS,HST,AST,...
-12/04/2026,Ath Bilbao,Villarreal,2,1,H,14,8,6,3,...
-```
-
-Required columns: `Date`, `HomeTeam`, `AwayTeam`, `FTHG` (home goals), `FTAG` (away goals), `FTR` (H/D/A), `HS`, `AS`, `HST`, `AST` (shots).
-
-Odds columns (`AvgH`, `AvgD`, `AvgA`, `B365H`, `B365D`, `B365A`) are optional but improve accuracy.
-
-### 2. Remove played fixtures from `data/fixtures_25_26.csv`
-
-Delete the rows for matches that have now been played. The file should only contain genuinely future fixtures.
-
-### 3. Run the pipeline
+## Run it
 
 ```bash
-python data_engineering/build_model_dataset.py
-python prediction/train_predict.py
+git clone https://github.com/mmerino90/laliga_predictor.git
+cd laliga_predictor
+pip install -r requirements.txt
+python run.py            # ~2-3 min: features, walk-forward evaluation, plots, predictions
+python run.py --update   # download the latest results and fixtures first
+pytest                   # leakage, feature and metric tests
 ```
 
-Fresh predictions will be written to `data/predictions_future_matches.csv`.
+To preview the site locally, run `python -m http.server --directory site` and open http://localhost:8000.
 
----
+The walkthrough notebook [`laliga_predictor_walkthrough.ipynb`](laliga_predictor_walkthrough.ipynb) tours the data, features and results.
 
-## Why the model agrees with bookmaker odds on most fixtures
+## Project structure
 
-The model predicts the same result as the bookmakers on the majority of fixtures. This is expected, not a bug.
-
-All the features we engineer — ELO, form, shots on target, head-to-head — are a subset of what professional oddsmakers already price in. The `consensus_home_prob` and `consensus_away_prob` features let the model inherit all of that market knowledge. Since our features don't add information the market doesn't have, the model rarely overrides the odds.
-
-**What would generate genuine disagreements:**
-
-| Signal | How to use it |
-|---|---|
-| **Live odds movement** | If a line moves from 2.0 → 2.4 in the 48 hours before kickoff, sharp money spotted something (injury, rotation). Scraping live odds 24 hours before each match would surface these discrepancies. |
-| **Injury & suspension data** | A team missing its top striker materially changes the goals model. APIs like SofaScore or Transfermarkt provide this for free. Add it as a binary `home_striker_out` feature. |
-| **Cup/European rotation** | Teams in Champions League often rest starters before big European games. This is publicly known but not captured in our dataset. |
-
-**How to use current predictions confidently:**  
-Filter `predictions_future_matches.csv` for rows where `confidence_tier = "High"` or `"Very High"`. These are the fixtures where the model has the clearest signal regardless of market alignment.
-
----
-
-## Visualisations
-
-Run `python visualise.py` to generate all diagnostic plots into `plots/`:
-
-| Plot | Description |
-|---|---|
-| `feature_importance.png` | Top 20 features by XGBoost importance, coloured by group |
-| `calibration_curves.png` | Are predicted probabilities reliable? Model vs perfect calibration |
-| `confusion_matrix.png` | How often each actual result was predicted correctly |
-| `elo_trajectory.png` | ELO rating over the season for the top 6 teams |
-| `score_heatmap_example.png` | Full scoreline probability matrix for a sample fixture |
-
----
-
-## Installation
-
-```bash
-pip install xgboost scikit-learn pandas numpy
+```
+laliga/
+  data.py        load the season CSVs and download updates
+  features.py    pre-match feature engineering (ELO, form, shots, H2H, odds)
+  model.py       XGBoost result/goals models, logistic + bookmaker baselines
+  evaluate.py    walk-forward folds, metrics (accuracy, log-loss, RPS), bootstrap CIs, forward test
+  plots.py       figures in results/
+run.py           one-command pipeline
+site/            static GitHub Pages site (index.html + generated data.json)
+results/         metrics.json, walk-forward predictions, plots
+data/raw/        one CSV per season + upcoming fixtures (football-data.co.uk)
+tests/           pytest suite
+.github/workflows/
+  tests.yml        run the tests on every push
+  predictions.yml  Tue/Fri: download, re-run, deploy the site (no commits)
 ```
 
-Python 3.10+ required.
+## Limitations and next steps
 
----
+- The model is frozen at the start of each test season. Retraining it during the season (e.g. monthly) would use more recent data.
+- No team news: injuries, suspensions and rotation before European games are exactly where markets move and these features don't.
+- Closing odds (available from 2019) would be a harder benchmark than the pre-match odds used here.
 
-## Data sources
+## Data
 
-- Historical results (2015–2025): [football-data.co.uk](https://www.football-data.co.uk/spainm.php) — free CSV downloads
-- Current season results: same source, updated weekly
-- Fixtures: exported from a fixtures calendar and kept in `fixtures_25_26.csv`
+Match results, statistics and odds come from [football-data.co.uk](https://www.football-data.co.uk/spainm.php).

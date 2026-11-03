@@ -1,0 +1,2111 @@
+{
+ "generated": "2026-11-02 23:53 UTC",
+ "model": "XGBoost",
+ "upcoming": [
+  {
+   "kickoff": "2026-11-02 20:00",
+   "home": "La Coruna",
+   "away": "Osasuna",
+   "model": [
+    0.451,
+    0.397,
+    0.152
+   ],
+   "bookmakers": [
+    0.441,
+    0.289,
+    0.27
+   ],
+   "xg": [
+    1.54,
+    1.0
+   ],
+   "scores": [
+    [
+     "1-0",
+     0.122
+    ],
+    [
+     "1-1",
+     0.122
+    ],
+    [
+     "2-0",
+     0.094
+    ]
+   ]
+  }
+ ],
+ "track_record": {
+  "season": "2026-27",
+  "n": 108,
+  "model_accuracy": 0.5556,
+  "bookmaker_accuracy": 0.5648,
+  "model_rps": 0.1914,
+  "bookmaker_rps": 0.1841,
+  "matches": [
+   {
+    "date": "2026-11-01",
+    "home": "Ath Bilbao",
+    "away": "Sociedad",
+    "score": "2-1",
+    "result": "H",
+    "model": [
+     0.466,
+     0.315,
+     0.219
+    ],
+    "bookmakers": [
+     0.437,
+     0.26,
+     0.304
+    ],
+    "pick": "H"
+   },
+   {
+    "date": "2026-11-01",
+    "home": "Elche",
+    "away": "Valencia",
+    "score": "0-1",
+    "result": "A",
+    "model": [
+     0.368,
+     0.328,
+     0.304
+    ],
+    "bookmakers": [
+     0.413,
+     0.279,
+     0.308
+    ],
+    "pick": "H"
+   },
+   {
+    "date": "2026-11-01",
+    "home": "Santander",
+    "away": "Real Madrid",
+    "score": "0-3",
+    "result": "A",
+    "model": [
+     0.191,
+     0.19,
+     0.619
+    ],
+    "bookmakers": [
+     0.095,
+     0.128,
+     0.777
+    ],
+    "pick": "A"
+   },
+   {
+    "date": "2026-11-01",
+    "home": "Getafe",
+    "away": "Sevilla",
+    "score": "3-1",
+    "result": "H",
+    "model": [
+     0.348,
+     0.279,
+     0.373
+    ],
+    "bookmakers": [
+     0.303,
+     0.31,
+     0.387
+    ],
+    "pick": "A"
+   },
+   {
+    "date": "2026-10-31",
+    "home": "Barcelona",
+    "away": "Alaves",
+    "score": "6-1",
+    "result": "H",
+    "model": [
+     0.884,
+     0.051,
+     0.065
+    ],
+    "bookmakers": [
+     0.86,
+     0.093,
+     0.047
+    ],
+    "pick": "H"
+   },
+   {
+    "date": "2026-10-31",
+    "home": "Betis",
+    "away": "Malaga",
+    "score": "2-1",
+    "result": "H",
+    "model": [
+     0.774,
+     0.116,
+     0.11
+    ],
+    "bookmakers": [
+     0.711,
+     0.178,
+     0.111
+    ],
+    "pick": "H"
+   },
+   {
+    "date": "2026-10-31",
+    "home": "Vallecano",
+    "away": "Celta",
+    "score": "3-0",
+    "result": "H",
+    "model": [
+     0.469,
+     0.322,
+     0.209
+    ],
+    "bookmakers": [
+     0.395,
+     0.29,
+     0.315
+    ],
+    "pick": "H"
+   },
+   {
+    "date": "2026-10-31",
+    "home": "Levante",
+    "away": "Ath Madrid",
+    "score": "0-2",
+    "result": "A",
+    "model": [
+     0.304,
+     0.224,
+     0.472
+    ],
+    "bookmakers": [
+     0.178,
+     0.208,
+     0.614
+    ],
+    "pick": "A"
+   },
+   {
+    "date": "2026-10-30",
+    "home": "Villarreal",
+    "away": "Espanol",
+    "score": "0-1",
+    "result": "A",
+    "model": [
+     0.799,
+     0.108,
+     0.093
+    ],
+    "bookmakers": [
+     0.669,
+     0.188,
+     0.142
+    ],
+    "pick": "H"
+   },
+   {
+    "date": "2026-10-26",
+    "home": "Sevilla",
+    "away": "Osasuna",
+    "score": "2-0",
+    "result": "H",
+    "model": [
+     0.43,
+     0.376,
+     0.194
+    ],
+    "bookmakers": [
+     0.487,
+     0.283,
+     0.23
+    ],
+    "pick": "H"
+   },
+   {
+    "date": "2026-10-25",
+    "home": "Barcelona",
+    "away": "Real Madrid",
+    "score": "1-2",
+    "result": "A",
+    "model": [
+     0.747,
+     0.118,
+     0.135
+    ],
+    "bookmakers": [
+     0.587,
+     0.173,
+     0.24
+    ],
+    "pick": "H"
+   },
+   {
+    "date": "2026-10-25",
+    "home": "Sociedad",
+    "away": "Levante",
+    "score": "2-1",
+    "result": "H",
+    "model": [
+     0.607,
+     0.233,
+     0.16
+    ],
+    "bookmakers": [
+     0.574,
+     0.237,
+     0.189
+    ],
+    "pick": "H"
+   },
+   {
+    "date": "2026-10-25",
+    "home": "Celta",
+    "away": "Betis",
+    "score": "0-0",
+    "result": "D",
+    "model": [
+     0.259,
+     0.228,
+     0.513
+    ],
+    "bookmakers": [
+     0.32,
+     0.282,
+     0.398
+    ],
+    "pick": "A"
+   },
+   {
+    "date": "2026-10-25",
+    "home": "Ath Bilbao",
+    "away": "Getafe",
+    "score": "4-0",
+    "result": "H",
+    "model": [
+     0.633,
+     0.27,
+     0.098
+    ],
+    "bookmakers": [
+     0.603,
+     0.242,
+     0.156
+    ],
+    "pick": "H"
+   },
+   {
+    "date": "2026-10-24",
+    "home": "Ath Madrid",
+    "away": "La Coruna",
+    "score": "1-0",
+    "result": "H",
+    "model": [
+     0.859,
+     0.072,
+     0.07
+    ],
+    "bookmakers": [
+     0.749,
+     0.164,
+     0.087
+    ],
+    "pick": "H"
+   },
+   {
+    "date": "2026-10-24",
+    "home": "Valencia",
+    "away": "Villarreal",
+    "score": "1-2",
+    "result": "A",
+    "model": [
+     0.139,
+     0.298,
+     0.564
+    ],
+    "bookmakers": [
+     0.293,
+     0.268,
+     0.44
+    ],
+    "pick": "A"
+   },
+   {
+    "date": "2026-10-24",
+    "home": "Santander",
+    "away": "Espanol",
+    "score": "2-1",
+    "result": "H",
+    "model": [
+     0.314,
+     0.32,
+     0.366
+    ],
+    "bookmakers": [
+     0.401,
+     0.263,
+     0.336
+    ],
+    "pick": "A"
+   },
+   {
+    "date": "2026-10-24",
+    "home": "Vallecano",
+    "away": "Elche",
+    "score": "0-3",
+    "result": "A",
+    "model": [
+     0.452,
+     0.303,
+     0.244
+    ],
+    "bookmakers": [
+     0.529,
+     0.253,
+     0.217
+    ],
+    "pick": "H"
+   },
+   {
+    "date": "2026-10-23",
+    "home": "Alaves",
+    "away": "Malaga",
+    "score": "1-1",
+    "result": "D",
+    "model": [
+     0.65,
+     0.238,
+     0.111
+    ],
+    "bookmakers": [
+     0.587,
+     0.253,
+     0.159
+    ],
+    "pick": "H"
+   },
+   {
+    "date": "2026-10-21",
+    "home": "Levante",
+    "away": "Ath Bilbao",
+    "score": "3-1",
+    "result": "H",
+    "model": [
+     0.233,
+     0.285,
+     0.482
+    ],
+    "bookmakers": [
+     0.279,
+     0.28,
+     0.442
+    ],
+    "pick": "A"
+   },
+   {
+    "date": "2026-10-19",
+    "home": "Getafe",
+    "away": "Vallecano",
+    "score": "1-1",
+    "result": "D",
+    "model": [
+     0.474,
+     0.348,
+     0.178
+    ],
+    "bookmakers": [
+     0.329,
+     0.316,
+     0.355
+    ],
+    "pick": "H"
+   },
+   {
+    "date": "2026-10-18",
+    "home": "Real Madrid",
+    "away": "Sevilla",
+    "score": "4-1",
+    "result": "H",
+    "model": [
+     0.813,
+     0.084,
+     0.103
+    ],
+    "bookmakers": [
+     0.761,
+     0.143,
+     0.096
+    ],
+    "pick": "H"
+   },
+   {
+    "date": "2026-10-18",
+    "home": "Malaga",
+    "away": "Sociedad",
+    "score": "2-5",
+    "result": "A",
+    "model": [
+     0.155,
+     0.538,
+     0.307
+    ],
+    "bookmakers": [
+     0.292,
+     0.27,
+     0.438
+    ],
+    "pick": "D"
+   },
+   {
+    "date": "2026-10-18",
+    "home": "Celta",
+    "away": "Alaves",
+    "score": "2-1",
+    "result": "H",
+    "model": [
+     0.508,
+     0.245,
+     0.247
+    ],
+    "bookmakers": [
+     0.448,
+     0.284,
+     0.269
+    ],
+    "pick": "H"
+   },
+   {
+    "date": "2026-10-18",
+    "home": "Osasuna",
+    "away": "Santander",
+    "score": "2-0",
+    "result": "H",
+    "model": [
+     0.437,
+     0.391,
+     0.172
+    ],
+    "bookmakers": [
+     0.474,
+     0.262,
+     0.264
+    ],
+    "pick": "H"
+   },
+   {
+    "date": "2026-10-17",
+    "home": "Valencia",
+    "away": "Ath Bilbao",
+    "score": "0-0",
+    "result": "D",
+    "model": [
+     0.184,
+     0.384,
+     0.432
+    ],
+    "bookmakers": [
+     0.284,
+     0.285,
+     0.431
+    ],
+    "pick": "A"
+   },
+   {
+    "date": "2026-10-17",
+    "home": "Betis",
+    "away": "Barcelona",
+    "score": "2-5",
+    "result": "A",
+    "model": [
+     0.181,
+     0.099,
+     0.72
+    ],
+    "bookmakers": [
+     0.161,
+     0.169,
+     0.67
+    ],
+    "pick": "A"
+   },
+   {
+    "date": "2026-10-17",
+    "home": "Villarreal",
+    "away": "Elche",
+    "score": "0-0",
+    "result": "D",
+    "model": [
+     0.825,
+     0.097,
+     0.078
+    ],
+    "bookmakers": [
+     0.653,
+     0.192,
+     0.155
+    ],
+    "pick": "H"
+   },
+   {
+    "date": "2026-10-17",
+    "home": "Espanol",
+    "away": "Ath Madrid",
+    "score": "0-1",
+    "result": "A",
+    "model": [
+     0.235,
+     0.254,
+     0.51
+    ],
+    "bookmakers": [
+     0.197,
+     0.243,
+     0.56
+    ],
+    "pick": "A"
+   },
+   {
+    "date": "2026-10-16",
+    "home": "La Coruna",
+    "away": "Levante",
+    "score": "1-1",
+    "result": "D",
+    "model": [
+     0.514,
+     0.297,
+     0.189
+    ],
+    "bookmakers": [
+     0.461,
+     0.272,
+     0.267
+    ],
+    "pick": "H"
+   },
+   {
+    "date": "2026-10-12",
+    "home": "Levante",
+    "away": "Sevilla",
+    "score": "3-3",
+    "result": "D",
+    "model": [
+     0.412,
+     0.364,
+     0.223
+    ],
+    "bookmakers": [
+     0.347,
+     0.289,
+     0.363
+    ],
+    "pick": "H"
+   },
+   {
+    "date": "2026-10-11",
+    "home": "Santander",
+    "away": "Valencia",
+    "score": "2-2",
+    "result": "D",
+    "model": [
+     0.313,
+     0.376,
+     0.311
+    ],
+    "bookmakers": [
+     0.413,
+     0.266,
+     0.321
+    ],
+    "pick": "D"
+   },
+   {
+    "date": "2026-10-11",
+    "home": "Betis",
+    "away": "Osasuna",
+    "score": "5-2",
+    "result": "H",
+    "model": [
+     0.762,
+     0.136,
+     0.102
+    ],
+    "bookmakers": [
+     0.607,
+     0.231,
+     0.162
+    ],
+    "pick": "H"
+   },
+   {
+    "date": "2026-10-11",
+    "home": "Sociedad",
+    "away": "La Coruna",
+    "score": "3-2",
+    "result": "H",
+    "model": [
+     0.744,
+     0.131,
+     0.124
+    ],
+    "bookmakers": [
+     0.583,
+     0.241,
+     0.176
+    ],
+    "pick": "H"
+   },
+   {
+    "date": "2026-10-11",
+    "home": "Elche",
+    "away": "Celta",
+    "score": "0-0",
+    "result": "D",
+    "model": [
+     0.438,
+     0.302,
+     0.26
+    ],
+    "bookmakers": [
+     0.342,
+     0.293,
+     0.365
+    ],
+    "pick": "H"
+   },
+   {
+    "date": "2026-10-10",
+    "home": "Real Madrid",
+    "away": "Villarreal",
+    "score": "1-0",
+    "result": "H",
+    "model": [
+     0.838,
+     0.087,
+     0.075
+    ],
+    "bookmakers": [
+     0.691,
+     0.163,
+     0.146
+    ],
+    "pick": "H"
+   },
+   {
+    "date": "2026-10-10",
+    "home": "Barcelona",
+    "away": "Getafe",
+    "score": "3-0",
+    "result": "H",
+    "model": [
+     0.852,
+     0.075,
+     0.073
+    ],
+    "bookmakers": [
+     0.879,
+     0.08,
+     0.041
+    ],
+    "pick": "H"
+   },
+   {
+    "date": "2026-10-10",
+    "home": "Alaves",
+    "away": "Ath Madrid",
+    "score": "1-2",
+    "result": "A",
+    "model": [
+     0.147,
+     0.165,
+     0.688
+    ],
+    "bookmakers": [
+     0.226,
+     0.251,
+     0.523
+    ],
+    "pick": "A"
+   },
+   {
+    "date": "2026-10-09",
+    "home": "Malaga",
+    "away": "Espanol",
+    "score": "1-1",
+    "result": "D",
+    "model": [
+     0.287,
+     0.393,
+     0.321
+    ],
+    "bookmakers": [
+     0.333,
+     0.297,
+     0.37
+    ],
+    "pick": "D"
+   },
+   {
+    "date": "2026-09-20",
+    "home": "Valencia",
+    "away": "Sociedad",
+    "score": "2-3",
+    "result": "A",
+    "model": [
+     0.309,
+     0.417,
+     0.275
+    ],
+    "bookmakers": [
+     0.351,
+     0.28,
+     0.369
+    ],
+    "pick": "D"
+   },
+   {
+    "date": "2026-09-20",
+    "home": "Villarreal",
+    "away": "Levante",
+    "score": "3-1",
+    "result": "H",
+    "model": [
+     0.788,
+     0.132,
+     0.08
+    ],
+    "bookmakers": [
+     0.629,
+     0.201,
+     0.17
+    ],
+    "pick": "H"
+   },
+   {
+    "date": "2026-09-20",
+    "home": "La Coruna",
+    "away": "Betis",
+    "score": "1-1",
+    "result": "D",
+    "model": [
+     0.286,
+     0.254,
+     0.46
+    ],
+    "bookmakers": [
+     0.281,
+     0.26,
+     0.459
+    ],
+    "pick": "A"
+   },
+   {
+    "date": "2026-09-20",
+    "home": "Ath Madrid",
+    "away": "Real Madrid",
+    "score": "2-1",
+    "result": "H",
+    "model": [
+     0.165,
+     0.147,
+     0.689
+    ],
+    "bookmakers": [
+     0.268,
+     0.248,
+     0.483
+    ],
+    "pick": "A"
+   },
+   {
+    "date": "2026-09-20",
+    "home": "Getafe",
+    "away": "Malaga",
+    "score": "1-0",
+    "result": "H",
+    "model": [
+     0.523,
+     0.322,
+     0.155
+    ],
+    "bookmakers": [
+     0.467,
+     0.306,
+     0.227
+    ],
+    "pick": "H"
+   },
+   {
+    "date": "2026-09-19",
+    "home": "Sevilla",
+    "away": "Barcelona",
+    "score": "1-3",
+    "result": "A",
+    "model": [
+     0.236,
+     0.142,
+     0.622
+    ],
+    "bookmakers": [
+     0.083,
+     0.127,
+     0.791
+    ],
+    "pick": "A"
+   },
+   {
+    "date": "2026-09-19",
+    "home": "Celta",
+    "away": "Santander",
+    "score": "5-0",
+    "result": "H",
+    "model": [
+     0.486,
+     0.392,
+     0.122
+    ],
+    "bookmakers": [
+     0.523,
+     0.247,
+     0.23
+    ],
+    "pick": "H"
+   },
+   {
+    "date": "2026-09-19",
+    "home": "Ath Bilbao",
+    "away": "Alaves",
+    "score": "0-0",
+    "result": "D",
+    "model": [
+     0.665,
+     0.138,
+     0.196
+    ],
+    "bookmakers": [
+     0.581,
+     0.24,
+     0.18
+    ],
+    "pick": "H"
+   },
+   {
+    "date": "2026-09-19",
+    "home": "Osasuna",
+    "away": "Vallecano",
+    "score": "1-1",
+    "result": "D",
+    "model": [
+     0.334,
+     0.365,
+     0.301
+    ],
+    "bookmakers": [
+     0.396,
+     0.288,
+     0.315
+    ],
+    "pick": "D"
+   },
+   {
+    "date": "2026-09-18",
+    "home": "Espanol",
+    "away": "Elche",
+    "score": "1-3",
+    "result": "A",
+    "model": [
+     0.534,
+     0.194,
+     0.272
+    ],
+    "bookmakers": [
+     0.523,
+     0.266,
+     0.211
+    ],
+    "pick": "H"
+   },
+   {
+    "date": "2026-09-17",
+    "home": "Malaga",
+    "away": "Villarreal",
+    "score": "1-3",
+    "result": "A",
+    "model": [
+     0.116,
+     0.278,
+     0.605
+    ],
+    "bookmakers": [
+     0.263,
+     0.254,
+     0.483
+    ],
+    "pick": "A"
+   },
+   {
+    "date": "2026-09-17",
+    "home": "Betis",
+    "away": "Getafe",
+    "score": "1-0",
+    "result": "H",
+    "model": [
+     0.782,
+     0.127,
+     0.091
+    ],
+    "bookmakers": [
+     0.585,
+     0.247,
+     0.168
+    ],
+    "pick": "H"
+   },
+   {
+    "date": "2026-09-16",
+    "home": "Barcelona",
+    "away": "Santander",
+    "score": "7-2",
+    "result": "H",
+    "model": [
+     0.812,
+     0.108,
+     0.079
+    ],
+    "bookmakers": [
+     0.892,
+     0.068,
+     0.04
+    ],
+    "pick": "H"
+   },
+   {
+    "date": "2026-09-16",
+    "home": "La Coruna",
+    "away": "Sevilla",
+    "score": "0-1",
+    "result": "A",
+    "model": [
+     0.474,
+     0.236,
+     0.29
+    ],
+    "bookmakers": [
+     0.389,
+     0.297,
+     0.314
+    ],
+    "pick": "H"
+   },
+   {
+    "date": "2026-09-16",
+    "home": "Ath Madrid",
+    "away": "Osasuna",
+    "score": "4-0",
+    "result": "H",
+    "model": [
+     0.801,
+     0.112,
+     0.087
+    ],
+    "bookmakers": [
+     0.685,
+     0.199,
+     0.115
+    ],
+    "pick": "H"
+   },
+   {
+    "date": "2026-09-15",
+    "home": "Elche",
+    "away": "Real Madrid",
+    "score": "2-3",
+    "result": "A",
+    "model": [
+     0.183,
+     0.312,
+     0.506
+    ],
+    "bookmakers": [
+     0.08,
+     0.128,
+     0.792
+    ],
+    "pick": "A"
+   },
+   {
+    "date": "2026-09-15",
+    "home": "Alaves",
+    "away": "Valencia",
+    "score": "0-1",
+    "result": "A",
+    "model": [
+     0.679,
+     0.175,
+     0.146
+    ],
+    "bookmakers": [
+     0.552,
+     0.271,
+     0.178
+    ],
+    "pick": "H"
+   },
+   {
+    "date": "2026-09-15",
+    "home": "Vallecano",
+    "away": "Espanol",
+    "score": "2-1",
+    "result": "H",
+    "model": [
+     0.44,
+     0.239,
+     0.32
+    ],
+    "bookmakers": [
+     0.41,
+     0.283,
+     0.308
+    ],
+    "pick": "H"
+   },
+   {
+    "date": "2026-09-14",
+    "home": "Villarreal",
+    "away": "Betis",
+    "score": "1-2",
+    "result": "A",
+    "model": [
+     0.492,
+     0.361,
+     0.147
+    ],
+    "bookmakers": [
+     0.497,
+     0.242,
+     0.261
+    ],
+    "pick": "H"
+   },
+   {
+    "date": "2026-09-13",
+    "home": "Sociedad",
+    "away": "Ath Madrid",
+    "score": "0-3",
+    "result": "A",
+    "model": [
+     0.156,
+     0.215,
+     0.629
+    ],
+    "bookmakers": [
+     0.335,
+     0.269,
+     0.397
+    ],
+    "pick": "A"
+   },
+   {
+    "date": "2026-09-13",
+    "home": "Getafe",
+    "away": "La Coruna",
+    "score": "1-1",
+    "result": "D",
+    "model": [
+     0.522,
+     0.263,
+     0.215
+    ],
+    "bookmakers": [
+     0.392,
+     0.331,
+     0.277
+    ],
+    "pick": "H"
+   },
+   {
+    "date": "2026-09-13",
+    "home": "Levante",
+    "away": "Barcelona",
+    "score": "2-4",
+    "result": "A",
+    "model": [
+     0.227,
+     0.2,
+     0.573
+    ],
+    "bookmakers": [
+     0.06,
+     0.118,
+     0.821
+    ],
+    "pick": "A"
+   },
+   {
+    "date": "2026-09-13",
+    "home": "Celta",
+    "away": "Malaga",
+    "score": "1-1",
+    "result": "D",
+    "model": [
+     0.544,
+     0.341,
+     0.115
+    ],
+    "bookmakers": [
+     0.556,
+     0.258,
+     0.186
+    ],
+    "pick": "H"
+   },
+   {
+    "date": "2026-09-12",
+    "home": "Real Madrid",
+    "away": "Vallecano",
+    "score": "4-1",
+    "result": "H",
+    "model": [
+     0.859,
+     0.081,
+     0.06
+    ],
+    "bookmakers": [
+     0.847,
+     0.102,
+     0.051
+    ],
+    "pick": "H"
+   },
+   {
+    "date": "2026-09-12",
+    "home": "Ath Bilbao",
+    "away": "Elche",
+    "score": "1-1",
+    "result": "D",
+    "model": [
+     0.75,
+     0.134,
+     0.116
+    ],
+    "bookmakers": [
+     0.673,
+     0.2,
+     0.127
+    ],
+    "pick": "H"
+   },
+   {
+    "date": "2026-09-12",
+    "home": "Osasuna",
+    "away": "Espanol",
+    "score": "0-2",
+    "result": "A",
+    "model": [
+     0.368,
+     0.372,
+     0.26
+    ],
+    "bookmakers": [
+     0.444,
+     0.298,
+     0.258
+    ],
+    "pick": "D"
+   },
+   {
+    "date": "2026-09-12",
+    "home": "Santander",
+    "away": "Alaves",
+    "score": "2-1",
+    "result": "H",
+    "model": [
+     0.419,
+     0.279,
+     0.302
+    ],
+    "bookmakers": [
+     0.388,
+     0.27,
+     0.343
+    ],
+    "pick": "H"
+   },
+   {
+    "date": "2026-09-11",
+    "home": "Sevilla",
+    "away": "Valencia",
+    "score": "1-0",
+    "result": "H",
+    "model": [
+     0.502,
+     0.267,
+     0.231
+    ],
+    "bookmakers": [
+     0.483,
+     0.281,
+     0.235
+    ],
+    "pick": "H"
+   },
+   {
+    "date": "2026-09-07",
+    "home": "Elche",
+    "away": "Sociedad",
+    "score": "2-3",
+    "result": "A",
+    "model": [
+     0.184,
+     0.4,
+     0.416
+    ],
+    "bookmakers": [
+     0.317,
+     0.283,
+     0.399
+    ],
+    "pick": "A"
+   },
+   {
+    "date": "2026-09-07",
+    "home": "Getafe",
+    "away": "Celta",
+    "score": "1-1",
+    "result": "D",
+    "model": [
+     0.399,
+     0.381,
+     0.22
+    ],
+    "bookmakers": [
+     0.392,
+     0.327,
+     0.282
+    ],
+    "pick": "H"
+   },
+   {
+    "date": "2026-09-06",
+    "home": "Espanol",
+    "away": "Sevilla",
+    "score": "1-1",
+    "result": "D",
+    "model": [
+     0.577,
+     0.234,
+     0.189
+    ],
+    "bookmakers": [
+     0.415,
+     0.303,
+     0.281
+    ],
+    "pick": "H"
+   },
+   {
+    "date": "2026-09-06",
+    "home": "Malaga",
+    "away": "Levante",
+    "score": "0-0",
+    "result": "D",
+    "model": [
+     0.35,
+     0.41,
+     0.241
+    ],
+    "bookmakers": [
+     0.394,
+     0.289,
+     0.318
+    ],
+    "pick": "D"
+   },
+   {
+    "date": "2026-09-06",
+    "home": "Alaves",
+    "away": "Osasuna",
+    "score": "5-2",
+    "result": "H",
+    "model": [
+     0.562,
+     0.24,
+     0.197
+    ],
+    "bookmakers": [
+     0.421,
+     0.307,
+     0.272
+    ],
+    "pick": "H"
+   },
+   {
+    "date": "2026-09-06",
+    "home": "Valencia",
+    "away": "Barcelona",
+    "score": "0-5",
+    "result": "A",
+    "model": [
+     0.208,
+     0.296,
+     0.495
+    ],
+    "bookmakers": [
+     0.099,
+     0.163,
+     0.738
+    ],
+    "pick": "A"
+   },
+   {
+    "date": "2026-09-05",
+    "home": "Villarreal",
+    "away": "La Coruna",
+    "score": "2-3",
+    "result": "A",
+    "model": [
+     0.729,
+     0.17,
+     0.101
+    ],
+    "bookmakers": [
+     0.637,
+     0.218,
+     0.144
+    ],
+    "pick": "H"
+   },
+   {
+    "date": "2026-09-05",
+    "home": "Vallecano",
+    "away": "Santander",
+    "score": "3-2",
+    "result": "H",
+    "model": [
+     0.383,
+     0.337,
+     0.28
+    ],
+    "bookmakers": [
+     0.42,
+     0.285,
+     0.295
+    ],
+    "pick": "H"
+   },
+   {
+    "date": "2026-09-05",
+    "home": "Ath Bilbao",
+    "away": "Ath Madrid",
+    "score": "3-0",
+    "result": "H",
+    "model": [
+     0.343,
+     0.313,
+     0.344
+    ],
+    "bookmakers": [
+     0.311,
+     0.281,
+     0.408
+    ],
+    "pick": "A"
+   },
+   {
+    "date": "2026-09-04",
+    "home": "Betis",
+    "away": "Real Madrid",
+    "score": "1-0",
+    "result": "H",
+    "model": [
+     0.206,
+     0.204,
+     0.59
+    ],
+    "bookmakers": [
+     0.142,
+     0.183,
+     0.675
+    ],
+    "pick": "A"
+   },
+   {
+    "date": "2026-09-03",
+    "home": "Sociedad",
+    "away": "Celta",
+    "score": "0-0",
+    "result": "D",
+    "model": [
+     0.511,
+     0.3,
+     0.189
+    ],
+    "bookmakers": [
+     0.483,
+     0.266,
+     0.251
+    ],
+    "pick": "H"
+   },
+   {
+    "date": "2026-08-31",
+    "home": "Barcelona",
+    "away": "Vallecano",
+    "score": "5-2",
+    "result": "H",
+    "model": [
+     0.857,
+     0.075,
+     0.069
+    ],
+    "bookmakers": [
+     0.808,
+     0.122,
+     0.07
+    ],
+    "pick": "H"
+   },
+   {
+    "date": "2026-08-31",
+    "home": "Osasuna",
+    "away": "Getafe",
+    "score": "1-0",
+    "result": "H",
+    "model": [
+     0.537,
+     0.289,
+     0.175
+    ],
+    "bookmakers": [
+     0.428,
+     0.317,
+     0.255
+    ],
+    "pick": "H"
+   },
+   {
+    "date": "2026-08-30",
+    "home": "Celta",
+    "away": "Ath Bilbao",
+    "score": "0-2",
+    "result": "A",
+    "model": [
+     0.445,
+     0.379,
+     0.176
+    ],
+    "bookmakers": [
+     0.397,
+     0.293,
+     0.31
+    ],
+    "pick": "H"
+   },
+   {
+    "date": "2026-08-30",
+    "home": "La Coruna",
+    "away": "Valencia",
+    "score": "3-1",
+    "result": "H",
+    "model": [
+     0.434,
+     0.354,
+     0.212
+    ],
+    "bookmakers": [
+     0.372,
+     0.314,
+     0.314
+    ],
+    "pick": "H"
+   },
+   {
+    "date": "2026-08-30",
+    "home": "Real Madrid",
+    "away": "Malaga",
+    "score": "4-0",
+    "result": "H",
+    "model": [
+     0.876,
+     0.07,
+     0.055
+    ],
+    "bookmakers": [
+     0.847,
+     0.105,
+     0.048
+    ],
+    "pick": "H"
+   },
+   {
+    "date": "2026-08-29",
+    "home": "Sevilla",
+    "away": "Ath Madrid",
+    "score": "1-3",
+    "result": "A",
+    "model": [
+     0.166,
+     0.159,
+     0.675
+    ],
+    "bookmakers": [
+     0.267,
+     0.282,
+     0.45
+    ],
+    "pick": "A"
+   },
+   {
+    "date": "2026-08-29",
+    "home": "Sociedad",
+    "away": "Espanol",
+    "score": "2-1",
+    "result": "H",
+    "model": [
+     0.371,
+     0.453,
+     0.177
+    ],
+    "bookmakers": [
+     0.499,
+     0.262,
+     0.239
+    ],
+    "pick": "D"
+   },
+   {
+    "date": "2026-08-29",
+    "home": "Levante",
+    "away": "Betis",
+    "score": "5-2",
+    "result": "H",
+    "model": [
+     0.184,
+     0.413,
+     0.403
+    ],
+    "bookmakers": [
+     0.283,
+     0.285,
+     0.431
+    ],
+    "pick": "D"
+   },
+   {
+    "date": "2026-08-28",
+    "home": "Alaves",
+    "away": "Villarreal",
+    "score": "1-0",
+    "result": "H",
+    "model": [
+     0.271,
+     0.212,
+     0.517
+    ],
+    "bookmakers": [
+     0.301,
+     0.271,
+     0.428
+    ],
+    "pick": "A"
+   },
+   {
+    "date": "2026-08-28",
+    "home": "Santander",
+    "away": "Elche",
+    "score": "3-2",
+    "result": "H",
+    "model": [
+     0.459,
+     0.349,
+     0.191
+    ],
+    "bookmakers": [
+     0.469,
+     0.265,
+     0.266
+    ],
+    "pick": "H"
+   },
+   {
+    "date": "2026-08-27",
+    "home": "Barcelona",
+    "away": "Ath Bilbao",
+    "score": "2-0",
+    "result": "H",
+    "model": [
+     0.839,
+     0.086,
+     0.075
+    ],
+    "bookmakers": [
+     0.709,
+     0.175,
+     0.116
+    ],
+    "pick": "H"
+   },
+   {
+    "date": "2026-08-27",
+    "home": "Celta",
+    "away": "Osasuna",
+    "score": "1-2",
+    "result": "A",
+    "model": [
+     0.525,
+     0.282,
+     0.193
+    ],
+    "bookmakers": [
+     0.477,
+     0.285,
+     0.237
+    ],
+    "pick": "H"
+   },
+   {
+    "date": "2026-08-26",
+    "home": "Real Madrid",
+    "away": "Sociedad",
+    "score": "4-1",
+    "result": "H",
+    "model": [
+     0.828,
+     0.089,
+     0.083
+    ],
+    "bookmakers": [
+     0.725,
+     0.159,
+     0.116
+    ],
+    "pick": "H"
+   },
+   {
+    "date": "2026-08-25",
+    "home": "Valencia",
+    "away": "Betis",
+    "score": "0-1",
+    "result": "A",
+    "model": [
+     0.367,
+     0.405,
+     0.228
+    ],
+    "bookmakers": [
+     0.34,
+     0.29,
+     0.371
+    ],
+    "pick": "D"
+   },
+   {
+    "date": "2026-08-24",
+    "home": "Malaga",
+    "away": "La Coruna",
+    "score": "1-1",
+    "result": "D",
+    "model": [
+     0.463,
+     0.377,
+     0.159
+    ],
+    "bookmakers": [
+     0.38,
+     0.311,
+     0.31
+    ],
+    "pick": "H"
+   },
+   {
+    "date": "2026-08-24",
+    "home": "Osasuna",
+    "away": "Levante",
+    "score": "0-0",
+    "result": "D",
+    "model": [
+     0.399,
+     0.286,
+     0.315
+    ],
+    "bookmakers": [
+     0.517,
+     0.265,
+     0.218
+    ],
+    "pick": "H"
+   },
+   {
+    "date": "2026-08-23",
+    "home": "Elche",
+    "away": "Barcelona",
+    "score": "0-5",
+    "result": "A",
+    "model": [
+     0.193,
+     0.308,
+     0.499
+    ],
+    "bookmakers": [
+     0.108,
+     0.168,
+     0.723
+    ],
+    "pick": "A"
+   },
+   {
+    "date": "2026-08-23",
+    "home": "Getafe",
+    "away": "Santander",
+    "score": "1-0",
+    "result": "H",
+    "model": [
+     0.436,
+     0.389,
+     0.175
+    ],
+    "bookmakers": [
+     0.432,
+     0.323,
+     0.245
+    ],
+    "pick": "H"
+   },
+   {
+    "date": "2026-08-23",
+    "home": "Ath Madrid",
+    "away": "Villarreal",
+    "score": "2-2",
+    "result": "D",
+    "model": [
+     0.678,
+     0.166,
+     0.156
+    ],
+    "bookmakers": [
+     0.507,
+     0.261,
+     0.232
+    ],
+    "pick": "H"
+   },
+   {
+    "date": "2026-08-22",
+    "home": "Espanol",
+    "away": "Real Madrid",
+    "score": "1-2",
+    "result": "A",
+    "model": [
+     0.26,
+     0.182,
+     0.559
+    ],
+    "bookmakers": [
+     0.131,
+     0.207,
+     0.661
+    ],
+    "pick": "A"
+   },
+   {
+    "date": "2026-08-22",
+    "home": "Valencia",
+    "away": "Celta",
+    "score": "0-0",
+    "result": "D",
+    "model": [
+     0.299,
+     0.392,
+     0.308
+    ],
+    "bookmakers": [
+     0.405,
+     0.296,
+     0.299
+    ],
+    "pick": "D"
+   },
+   {
+    "date": "2026-08-22",
+    "home": "Ath Bilbao",
+    "away": "Sevilla",
+    "score": "1-3",
+    "result": "A",
+    "model": [
+     0.417,
+     0.294,
+     0.289
+    ],
+    "bookmakers": [
+     0.555,
+     0.264,
+     0.182
+    ],
+    "pick": "H"
+   },
+   {
+    "date": "2026-08-21",
+    "home": "Betis",
+    "away": "Sociedad",
+    "score": "1-0",
+    "result": "H",
+    "model": [
+     0.335,
+     0.366,
+     0.299
+    ],
+    "bookmakers": [
+     0.46,
+     0.269,
+     0.27
+    ],
+    "pick": "D"
+   },
+   {
+    "date": "2026-08-20",
+    "home": "Vallecano",
+    "away": "Alaves",
+    "score": "1-1",
+    "result": "D",
+    "model": [
+     0.399,
+     0.42,
+     0.181
+    ],
+    "bookmakers": [
+     0.421,
+     0.315,
+     0.265
+    ],
+    "pick": "D"
+   },
+   {
+    "date": "2026-08-19",
+    "home": "Ath Madrid",
+    "away": "Malaga",
+    "score": "2-0",
+    "result": "H",
+    "model": [
+     0.662,
+     0.203,
+     0.135
+    ],
+    "bookmakers": [
+     0.723,
+     0.181,
+     0.097
+    ],
+    "pick": "H"
+   },
+   {
+    "date": "2026-08-17",
+    "home": "La Coruna",
+    "away": "Elche",
+    "score": "1-1",
+    "result": "D",
+    "model": [
+     0.335,
+     0.386,
+     0.28
+    ],
+    "bookmakers": [
+     0.409,
+     0.313,
+     0.278
+    ],
+    "pick": "D"
+   },
+   {
+    "date": "2026-08-16",
+    "home": "Espanol",
+    "away": "Levante",
+    "score": "3-0",
+    "result": "H",
+    "model": [
+     0.329,
+     0.382,
+     0.29
+    ],
+    "bookmakers": [
+     0.464,
+     0.29,
+     0.246
+    ],
+    "pick": "D"
+   },
+   {
+    "date": "2026-08-16",
+    "home": "Santander",
+    "away": "Villarreal",
+    "score": "2-2",
+    "result": "D",
+    "model": [
+     0.167,
+     0.418,
+     0.415
+    ],
+    "bookmakers": [
+     0.297,
+     0.265,
+     0.437
+    ],
+    "pick": "D"
+   },
+   {
+    "date": "2026-08-15",
+    "home": "Sevilla",
+    "away": "Vallecano",
+    "score": "2-1",
+    "result": "H",
+    "model": [
+     0.313,
+     0.374,
+     0.313
+    ],
+    "bookmakers": [
+     0.413,
+     0.302,
+     0.285
+    ],
+    "pick": "D"
+   },
+   {
+    "date": "2026-08-15",
+    "home": "Alaves",
+    "away": "Getafe",
+    "score": "3-0",
+    "result": "H",
+    "model": [
+     0.355,
+     0.363,
+     0.282
+    ],
+    "bookmakers": [
+     0.405,
+     0.337,
+     0.257
+    ],
+    "pick": "D"
+   }
+  ]
+ },
+ "walk_forward": {
+  "matches": 3040,
+  "seasons": [
+   "2018-19",
+   "2019-20",
+   "2020-21",
+   "2021-22",
+   "2022-23",
+   "2023-24",
+   "2024-25",
+   "2025-26"
+  ],
+  "models": [
+   {
+    "model": "Base rates",
+    "accuracy": 0.4503,
+    "log_loss": 1.0706,
+    "rps": 0.2247,
+    "rps_vs_bookmakers": 0.0307,
+    "ci_low": 0.0265,
+    "ci_high": 0.035,
+    "draw_picks": 0.0
+   },
+   {
+    "model": "ELO logistic",
+    "accuracy": 0.5181,
+    "log_loss": 0.9973,
+    "rps": 0.1998,
+    "rps_vs_bookmakers": 0.0058,
+    "ci_low": 0.0037,
+    "ci_high": 0.008,
+    "draw_picks": 0.0
+   },
+   {
+    "model": "Logistic (all features)",
+    "accuracy": 0.5164,
+    "log_loss": 0.996,
+    "rps": 0.1976,
+    "rps_vs_bookmakers": 0.0037,
+    "ci_low": 0.0018,
+    "ci_high": 0.0056,
+    "draw_picks": 0.0826
+   },
+   {
+    "model": "XGBoost (no odds)",
+    "accuracy": 0.5082,
+    "log_loss": 1.0054,
+    "rps": 0.2025,
+    "rps_vs_bookmakers": 0.0085,
+    "ci_low": 0.0059,
+    "ci_high": 0.0109,
+    "draw_picks": 0.0766
+   },
+   {
+    "model": "XGBoost",
+    "accuracy": 0.5217,
+    "log_loss": 0.9898,
+    "rps": 0.1973,
+    "rps_vs_bookmakers": 0.0033,
+    "ci_low": 0.0014,
+    "ci_high": 0.0052,
+    "draw_picks": 0.1
+   },
+   {
+    "model": "XGBoost + isotonic",
+    "accuracy": 0.5161,
+    "log_loss": 1.166,
+    "rps": 0.2013,
+    "rps_vs_bookmakers": 0.0074,
+    "ci_low": 0.0047,
+    "ci_high": 0.0103,
+    "draw_picks": 0.1201
+   },
+   {
+    "model": "XGBoost tuned + isotonic",
+    "accuracy": 0.5148,
+    "log_loss": 1.1673,
+    "rps": 0.2016,
+    "rps_vs_bookmakers": 0.0076,
+    "ci_low": 0.0049,
+    "ci_high": 0.0104,
+    "draw_picks": 0.1036
+   },
+   {
+    "model": "Bookmakers",
+    "accuracy": 0.5303,
+    "log_loss": 0.9764,
+    "rps": 0.1939,
+    "rps_vs_bookmakers": 0.0,
+    "ci_low": 0.0,
+    "ci_high": 0.0,
+    "draw_picks": 0.0016
+   }
+  ]
+ },
+ "forward_test": {
+  "n": 30,
+  "first": "2026-04-12",
+  "last": "2026-05-24",
+  "committed": {
+   "accuracy": 0.5,
+   "rps": 0.24461516501392377,
+   "log_loss": 1.062855402930911,
+   "home_picks": 1.0
+  },
+  "bookmakers": {
+   "accuracy": 0.5333333333333333,
+   "rps": 0.231668269535675,
+   "log_loss": 0.997790792273685,
+   "home_picks": 0.8
+  },
+  "corrected_xgboost": {
+   "accuracy": 0.4,
+   "rps": 0.2470960844144035,
+   "log_loss": 1.0744281131034412,
+   "home_picks": 0.6333333333333333
+  }
+ }
+}

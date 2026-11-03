@@ -1,0 +1,175 @@
+{
+  "walk_forward": {
+    "matches": 3040,
+    "seasons": [
+      "2018-19",
+      "2019-20",
+      "2020-21",
+      "2021-22",
+      "2022-23",
+      "2023-24",
+      "2024-25",
+      "2025-26"
+    ],
+    "models": [
+      {
+        "model": "Base rates",
+        "accuracy": 0.4503,
+        "log_loss": 1.0706,
+        "rps": 0.2247,
+        "rps_vs_bookmakers": 0.0307,
+        "ci_low": 0.0265,
+        "ci_high": 0.035,
+        "draw_picks": 0.0
+      },
+      {
+        "model": "ELO logistic",
+        "accuracy": 0.5181,
+        "log_loss": 0.9973,
+        "rps": 0.1998,
+        "rps_vs_bookmakers": 0.0058,
+        "ci_low": 0.0037,
+        "ci_high": 0.008,
+        "draw_picks": 0.0
+      },
+      {
+        "model": "Logistic (all features)",
+        "accuracy": 0.5164,
+        "log_loss": 0.996,
+        "rps": 0.1976,
+        "rps_vs_bookmakers": 0.0037,
+        "ci_low": 0.0018,
+        "ci_high": 0.0056,
+        "draw_picks": 0.0826
+      },
+      {
+        "model": "XGBoost (no odds)",
+        "accuracy": 0.5082,
+        "log_loss": 1.0054,
+        "rps": 0.2025,
+        "rps_vs_bookmakers": 0.0085,
+        "ci_low": 0.0059,
+        "ci_high": 0.0109,
+        "draw_picks": 0.0766
+      },
+      {
+        "model": "XGBoost",
+        "accuracy": 0.5217,
+        "log_loss": 0.9898,
+        "rps": 0.1973,
+        "rps_vs_bookmakers": 0.0033,
+        "ci_low": 0.0014,
+        "ci_high": 0.0052,
+        "draw_picks": 0.1
+      },
+      {
+        "model": "XGBoost + isotonic",
+        "accuracy": 0.5161,
+        "log_loss": 1.166,
+        "rps": 0.2013,
+        "rps_vs_bookmakers": 0.0074,
+        "ci_low": 0.0047,
+        "ci_high": 0.0103,
+        "draw_picks": 0.1201
+      },
+      {
+        "model": "XGBoost tuned + isotonic",
+        "accuracy": 0.5148,
+        "log_loss": 1.1673,
+        "rps": 0.2016,
+        "rps_vs_bookmakers": 0.0076,
+        "ci_low": 0.0049,
+        "ci_high": 0.0104,
+        "draw_picks": 0.1036
+      },
+      {
+        "model": "Bookmakers",
+        "accuracy": 0.5303,
+        "log_loss": 0.9764,
+        "rps": 0.1939,
+        "rps_vs_bookmakers": 0.0,
+        "ci_low": 0.0,
+        "ci_high": 0.0,
+        "draw_picks": 0.0016
+      }
+    ]
+  },
+  "per_season_accuracy": {
+    "2018-19": {
+      "XGBoost": 0.4868,
+      "Bookmakers": 0.4868,
+      "ELO logistic": 0.4737
+    },
+    "2019-20": {
+      "XGBoost": 0.4842,
+      "Bookmakers": 0.5158,
+      "ELO logistic": 0.5
+    },
+    "2020-21": {
+      "XGBoost": 0.5158,
+      "Bookmakers": 0.5342,
+      "ELO logistic": 0.5053
+    },
+    "2021-22": {
+      "XGBoost": 0.5316,
+      "Bookmakers": 0.5158,
+      "ELO logistic": 0.5105
+    },
+    "2022-23": {
+      "XGBoost": 0.5316,
+      "Bookmakers": 0.5421,
+      "ELO logistic": 0.5553
+    },
+    "2023-24": {
+      "XGBoost": 0.5316,
+      "Bookmakers": 0.5553,
+      "ELO logistic": 0.5237
+    },
+    "2024-25": {
+      "XGBoost": 0.5632,
+      "Bookmakers": 0.5474,
+      "ELO logistic": 0.5526
+    },
+    "2025-26": {
+      "XGBoost": 0.5289,
+      "Bookmakers": 0.5447,
+      "ELO logistic": 0.5237
+    }
+  },
+  "draw_rule": {
+    "accuracy_argmax": 0.5217,
+    "accuracy_draw_rule": 0.5188,
+    "draw_recall_argmax": 0.1328,
+    "draw_recall_draw_rule": 0.1961,
+    "draw_picks_draw_rule": 0.149
+  },
+  "goals_mae": {
+    "home_mae_model": 0.9112,
+    "home_mae_baseline": 0.9986,
+    "away_mae_model": 0.7916,
+    "away_mae_baseline": 0.8299
+  },
+  "forward_test": {
+    "n": 30,
+    "first": "2026-04-12",
+    "last": "2026-05-24",
+    "committed": {
+      "accuracy": 0.5,
+      "rps": 0.24461516501392377,
+      "log_loss": 1.062855402930911,
+      "home_picks": 1.0
+    },
+    "bookmakers": {
+      "accuracy": 0.5333333333333333,
+      "rps": 0.231668269535675,
+      "log_loss": 0.997790792273685,
+      "home_picks": 0.8
+    },
+    "corrected_xgboost": {
+      "accuracy": 0.4,
+      "rps": 0.2470960844144035,
+      "log_loss": 1.0744281131034412,
+      "home_picks": 0.6333333333333333
+    }
+  }
+}
