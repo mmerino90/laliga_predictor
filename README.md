@@ -1,9 +1,9 @@
 # La Liga Match Predictor
 
 [![Tests](https://github.com/mmerino90/laliga_predictor/actions/workflows/tests.yml/badge.svg)](https://github.com/mmerino90/laliga_predictor/actions/workflows/tests.yml)
-[![Weekly predictions](https://github.com/mmerino90/laliga_predictor/actions/workflows/predictions.yml/badge.svg)](https://github.com/mmerino90/laliga_predictor/actions/workflows/predictions.yml)
+[![Daily predictions](https://github.com/mmerino90/laliga_predictor/actions/workflows/predictions.yml/badge.svg)](https://github.com/mmerino90/laliga_predictor/actions/workflows/predictions.yml)
 
-**Live predictions → [mmerino90.github.io/laliga_predictor](https://mmerino90.github.io/laliga_predictor/)** (rebuilt automatically every Tuesday and Friday)
+**Live predictions → [mmerino90.github.io/laliga_predictor](https://mmerino90.github.io/laliga_predictor/)** (rebuilt automatically every day)
 
 An XGBoost model that predicts La Liga results (home win / draw / away win) and scorelines from 11+ seasons of match data. It is benchmarked honestly against the betting market using walk-forward validation.
 
@@ -111,7 +111,7 @@ data/raw/        one CSV per season + upcoming fixtures (football-data.co.uk)
 tests/           pytest suite
 .github/workflows/
   tests.yml        run the tests on every push
-  predictions.yml  Tue/Fri: download, re-run, deploy the site (no commits)
+  predictions.yml  daily: download, re-run, deploy the site (no commits)
 ```
 
 ## Limitations and next steps

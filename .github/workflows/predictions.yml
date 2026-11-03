@@ -1,10 +1,10 @@
-name: Weekly predictions
+name: Daily predictions
 
 # Downloads the latest results and fixtures, re-runs the pipeline and publishes
 # the site to GitHub Pages. Nothing is committed back to the repository.
 on:
   schedule:
-    - cron: "0 7 * * 2,5"   # Tuesday and Friday, 07:00 UTC
+    - cron: "0 7 * * *"   # every day, 07:00 UTC
   push:
     branches: [main]
   workflow_dispatch:

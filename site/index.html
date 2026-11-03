@@ -115,7 +115,7 @@ footer a { color: var(--ink-2); }
   <footer>
     Built by <a href="https://manuelmerino.vercel.app">Manuel Merino</a> ·
     <a href="https://github.com/mmerino90/laliga_predictor">Source on GitHub</a> ·
-    Updated automatically every Tuesday and Friday.
+    Updated automatically every day.
   </footer>
 </main>
 
@@ -124,15 +124,19 @@ const pct = x => Math.round(x * 100) + "%";
 const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
 const bar = (p, cls = "") => `<div class="bar ${cls}" role="img" aria-label="Home ${pct(p[0])}, draw ${pct(p[1])}, away ${pct(p[2])}">` +
   ["home", "draw", "away"].map((k, i) => `<div style="flex:${p[i]};background:var(--${k})"></div>`).join("") + "</div>";
-const fmtDate = s => new Date(s.replace(" ", "T")).toLocaleString("en-GB", { weekday: "short", day: "numeric", month: "short", hour: "2-digit", minute: "2-digit" });
+// football-data.co.uk kick-off times are UK local time; show them as given
+const ukTime = s => new Date(s.replace(" ", "T") + "Z");
+const fmtDate = s => ukTime(s).toLocaleString("en-GB", { timeZone: "UTC", weekday: "short", day: "numeric", month: "short", hour: "2-digit", minute: "2-digit" }) + " UK";
 
 fetch("data.json").then(r => r.json()).then(d => {
   document.getElementById("meta").innerHTML =
     `Updated ${esc(d.generated)} · model: ${esc(d.model)} · <a href="https://github.com/mmerino90/laliga_predictor">GitHub</a>`;
 
-  // Upcoming
+  // Upcoming: hide matches that have kicked off but whose result isn't published yet
+  // (UK time is UTC or UTC+1, so the 2-hour window absorbs the difference)
+  const upcoming = d.upcoming.filter(m => ukTime(m.kickoff).getTime() + 2 * 3600e3 > Date.now());
   const up = document.getElementById("upcoming");
-  up.innerHTML = d.upcoming.length ? d.upcoming.map(m => `
+  up.innerHTML = upcoming.length ? upcoming.map(m => `
     <article class="card">
       <div class="kick">${esc(fmtDate(m.kickoff))}</div>
       <div class="teams"><span>${esc(m.home)}</span><span>${esc(m.away)}</span></div>
@@ -142,7 +146,7 @@ fetch("data.json").then(r => r.json()).then(d => {
       <div class="probs" style="color:var(--ink-2)"><span>${pct(m.bookmakers[0])}</span><span>${pct(m.bookmakers[1])}</span><span>${pct(m.bookmakers[2])}</span></div>` : ""}
       <div class="scores">Expected goals ${m.xg[0].toFixed(1)}–${m.xg[1].toFixed(1)} · likely scores ${m.scores.map(s => `${s[0]} (${pct(s[1])})`).join(", ")}</div>
     </article>`).join("")
-    : `<p class="empty">No fixtures published yet for the next matchday. football-data.co.uk usually lists them a few days before kick-off.</p>`;
+    : `<p class="empty">No fixtures published yet for the next matchday. football-data.co.uk usually lists them a few days before kick-off, and this page checks for them every day.</p>`;
 
   // Track record
   const t = d.track_record;
