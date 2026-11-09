@@ -28,6 +28,11 @@ jobs:
           python-version: "3.12"
           cache: pip
       - run: pip install -r requirements.txt
+      # The log of predictions published before kick-off lives on the deployed site, not in git
+      - name: Restore the live prediction log
+        run: |
+          url="https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/predictions_log.json"
+          curl -fsSL "$url" -o /tmp/log.json && mv /tmp/log.json site/predictions_log.json || echo "No deployed log yet, using the committed one"
       - run: python run.py --update
       - uses: actions/upload-pages-artifact@v3
         with:

@@ -105,7 +105,8 @@ laliga/
   evaluate.py    walk-forward folds, metrics (accuracy, log-loss, RPS), bootstrap CIs, forward test
   plots.py       figures in results/
 run.py           one-command pipeline
-site/            static GitHub Pages site (index.html + generated data.json)
+site/            static GitHub Pages site: index.html, generated data.json, and
+                 predictions_log.json (every prediction published before kick-off, scored later)
 results/         metrics.json, walk-forward predictions, plots
 data/raw/        one CSV per season + upcoming fixtures (football-data.co.uk)
 tests/           pytest suite

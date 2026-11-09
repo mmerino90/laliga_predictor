@@ -17,11 +17,12 @@ import numpy as np
 import pandas as pd
 
 from laliga import evaluate as E, model as M, plots
-from laliga.data import ROOT, download_latest, load_matches
+from laliga.data import ROOT, download_latest, load_matches, season_label
 from laliga.features import build_features
 
 RESULTS_DIR = ROOT / "results"
 SITE_DATA = ROOT / "site" / "data.json"
+LIVE_LOG = ROOT / "site" / "predictions_log.json"
 FORWARD_SNAPSHOT = ROOT / "data" / "forward_test" / "predictions_made_2026-04-09.csv"
 PRODUCTION = "XGBoost"  # best ML variant on walk-forward log-loss/RPS (see results/metrics.json)
 SHOWN = ["Base rates", "ELO logistic", "Logistic (all features)", "XGBoost (no odds)",
@@ -51,28 +52,70 @@ def predict_upcoming(features: pd.DataFrame) -> list[dict]:
             "bookmakers": None if np.isnan(book[i]).any() else [r(v, 3) for v in book[i]],
             "xg": [r(xg_home[i], 2), r(xg_away[i], 2)],
             "scores": [[f"{k // grid.shape[1]}-{k % grid.shape[1]}", r(grid.flat[k], 3)] for k in top],
+            "pick_score": likely_score(xg_home[i], xg_away[i], int(p[i].argmax())),
         })
     return out
 
 
-def track_record(preds: pd.DataFrame, season: str) -> dict:
-    s = preds[preds["season"] == season].sort_values("match_datetime", ascending=False)
-    if s.empty:
-        return {}
-    y = M.labels(s)
-    model, book = E.probs(s, PRODUCTION), E.probs(s, "Bookmakers")
-    return {
-        "season": season, "n": len(s),
-        "model_accuracy": r((model.argmax(1) == y).mean()),
-        "bookmaker_accuracy": r((book.argmax(1) == y).mean()),
-        "model_rps": r(E.rps(y, model).mean()), "bookmaker_rps": r(E.rps(y, book).mean()),
-        "matches": [{
-            "date": row.match_datetime.strftime("%Y-%m-%d"), "home": row.home_team, "away": row.away_team,
-            "score": f"{int(row.target_home_goals)}-{int(row.target_away_goals)}", "result": row.target_ftr,
-            "model": [r(v, 3) for v in model[i]], "bookmakers": [r(v, 3) for v in book[i]],
-            "pick": M.RESULTS[model[i].argmax()],
-        } for i, row in enumerate(s.itertuples())],
-    }
+def likely_score(xg_home: float, xg_away: float, outcome: int) -> str:
+    """Most likely scoreline among those that match the predicted outcome (0=H, 1=D, 2=A),
+    so the shown score never contradicts the pick (the overall mode is usually 1-1)."""
+    g = M.score_grid(xg_home, xg_away)
+    i, j = np.indices(g.shape)
+    g = np.where([i > j, i == j, i < j][outcome], g, 0)
+    h, a = np.unravel_index(g.argmax(), g.shape)
+    return f"{h}-{a}"
+
+
+def season_results(preds: pd.DataFrame) -> dict:
+    """Backtest predictions for every walk-forward season, newest match first.
+    Matches are compact rows: [date, home, away, home goals, away goals, result, model H/D/A, bookmakers H/D/A,
+    most likely score]."""
+    out = {}
+    for season, s in preds.groupby("season"):
+        s = s.sort_values("match_datetime", ascending=False)
+        y = M.labels(s)
+        model, book = E.probs(s, PRODUCTION), E.probs(s, "Bookmakers")
+        out[season] = {
+            "n": len(s),
+            "model_accuracy": r((model.argmax(1) == y).mean()),
+            "bookmaker_accuracy": r((book.argmax(1) == y).mean()),
+            "matches": [[row.match_datetime.strftime("%Y-%m-%d"), row.home_team, row.away_team,
+                         int(row.target_home_goals), int(row.target_away_goals), row.target_ftr,
+                         [r(v, 3) for v in model[i]], [r(v, 3) for v in book[i]],
+                         likely_score(row.xg_home, row.xg_away, int(model[i].argmax()))]
+                        for i, row in enumerate(s.itertuples())],
+        }
+    return out
+
+
+def update_live_log(upcoming: list[dict], features: pd.DataFrame, generated: str) -> list[dict]:
+    """
+    Keep every prediction the site published before kick-off and score it once the result is in.
+    The log lives in the deployed site (the workflow downloads the previous one), so nothing is committed.
+    An entry is only written while kick-off is still ahead, so a logged prediction is always pre-match.
+    """
+    log = {}
+    if LIVE_LOG.exists():
+        log = {f"{e['kickoff']}|{e['home']}|{e['away']}": e for e in json.loads(LIVE_LOG.read_text(encoding="utf-8"))}
+    now = datetime.now(timezone.utc).replace(tzinfo=None)
+    for m in upcoming:
+        # kick-off times are UK time (UTC or UTC+1): subtracting an hour makes "before kick-off" safe
+        if now < pd.Timestamp(m["kickoff"]) - pd.Timedelta(hours=1):
+            log[f"{m['kickoff']}|{m['home']}|{m['away']}"] = {**m, "made": generated}
+    played = features[features["is_future_match"] == 0].set_index(["home_team", "away_team", "season"])
+    for e in log.values():
+        if "result" in e:
+            continue
+        k = pd.Timestamp(e["kickoff"])
+        key = (e["home"], e["away"], season_label(k.year if k.month >= 7 else k.year - 1))
+        if key in played.index:
+            row = played.loc[key]
+            e["score"] = [int(row["target_home_goals"]), int(row["target_away_goals"])]
+            e["result"] = row["target_ftr"]
+    entries = sorted(log.values(), key=lambda e: e["kickoff"], reverse=True)
+    LIVE_LOG.write_text(json.dumps(entries, indent=1), encoding="utf-8")
+    return entries
 
 
 def main() -> None:
@@ -117,15 +160,20 @@ def main() -> None:
     plots.elo_race(features, current, RESULTS_DIR / "elo_current_season.png")
 
     print("\nPredicting upcoming fixtures ...")
+    generated = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
+    upcoming = predict_upcoming(features)
     site = {
-        "generated": datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC"),
+        "generated": generated,
         "model": PRODUCTION,
-        "upcoming": predict_upcoming(features),
-        "track_record": track_record(preds, current),
+        "current_season": current,
+        "upcoming": upcoming,
+        "live": update_live_log(upcoming, features, generated),
+        "seasons": season_results(preds),
         "walk_forward": metrics["walk_forward"],
+        "per_season_accuracy": metrics["per_season_accuracy"],
         "forward_test": forward,
     }
-    SITE_DATA.write_text(json.dumps(site, indent=1, default=float), encoding="utf-8")
+    SITE_DATA.write_text(json.dumps(site, separators=(",", ":"), default=float), encoding="utf-8")
     for m in site["upcoming"]:
         print(f"  {m['kickoff']}  {m['home']:>14} v {m['away']:<14}  H/D/A {m['model']}")
     print(f"\nWrote {RESULTS_DIR.relative_to(ROOT)}/ and {SITE_DATA.relative_to(ROOT)}")
